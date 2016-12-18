@@ -1,0 +1,81 @@
+@charset 'UTF-8';
+
+$base-color: #f10215;
+$rem-size: 75;
+
+/* 像素转为rem $px为需要转换的px */
+@function pxTorem($px){ 
+    @return $px / $rem-size * 1rem;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body{
+    font-family: "Microsoft YaHei UI Light","Microsoft YaHei" !important;
+    line-height: 1.5;
+}
+
+
+
+[v-cloak]{
+    display: none;
+}
+
+.page-wrapper{
+    max-width: 45em;
+    margin: auto;
+    position: relative;
+    .top-bar{
+        padding: pxTorem(20);
+        background-color:$base-color;
+        font-size: pxTorem(30);
+        color:#fff;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        z-index: 10000;
+        width: pxTorem(750);;
+    }
+}
+
+.page-list{
+    margin-top: pxTorem(80);
+    padding: pxTorem(30) pxTorem(20);
+    background-image: url('../images/cloud.png');
+    &-inner{
+        background-color: #fff;
+        padding: pxTorem(20);
+        font-size: pxTorem(28);
+        hr{
+            border-top-width: 0;
+            &::before {
+                content: " ";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 200%;
+                height: 200%;
+                border-top: 1px solid #eee;
+                transform-origin: 0 0;
+                transform: scale(0.5);
+                pointer-events: none; /* 防止点击触发 */
+            }
+            margin:pxTorem(15) 0;
+        }
+    }
+    .problem-list{
+        
+        &-item{
+            
+        }
+        .sel-item{
+
+        }
+    }
+}

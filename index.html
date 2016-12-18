@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="四季草堂体质测试">
+    <meta name="keywords" content="By Evan、">
+    <!-- 当该 HTML 页面在手机上浏览时，该标签用于指定是否将网页内容中的手机号码显示为拨号的超链接。 -->
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <title>index</title>
+    <!-- 公共库 样式-->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- css reset -->
+    <!--<link rel="stylesheet" href="//cdn.bootcss.com/normalize/5.0.0/normalize.css">-->
+    <!-- 屏幕适配 -->
+    
+    <!-- 文本数据 -->
+    <script src="js/data.js"></script>
+</head>
+<body style="font-size: 12px">
+    <div class="page-wrapper" v-cloak>
+        <div class="top-bar">四季草堂体质测试</div>
+        <div class="page-list first">
+            <div class="page-list-inner">
+                <p>以下问题请根据您最近三个月的健康感受回答，孕妇及16岁以下人群不建议使用本测试</p>
+                <hr>
+                <div class="problem-list" v-for="(item,index) in ProblemDatas">
+                    <p class="problem-list-item">{{index+1 + '、' + item}}</p>
+                    <span class="sel-item">没有</span>
+                    <span class="sel-item">很少</span>
+                    <span class="sel-item">有时</span>
+                    <span class="sel-item">经常</span>
+                    <span class="sel-item">总是</span>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="flexible/flexible.debug.js"></script>
+    <script src="flexible/flexible_css.debug.js"></script>
+    <script src="//cdn.bootcss.com/vue/2.1.6/vue.min.js"></script>
+    <script>
+    var ProblemData = ProblemData;
+
+    var app = new Vue({
+        el:'.page-wrapper',
+        data:function(){
+            return {
+                'message':'hell0,world',
+                'ProblemDatas': ProblemData[0],
+            }
+        },
+    })
+    </script>
+</body>
+</html>
